@@ -212,6 +212,9 @@ export const setSectionSelection = (value, sectionNumber) => {
     for (let i = 0; i < boxIds.length; i++) {
         document.getElementById(boxIds[i]).checked = value;
     }
+    // Reset dropdown to standard placeholder so we trigger a change event when selecting a section, then deselecting
+    // everything and again select the same section.
+    document.getElementById(cssIds.SECTION_SELECT).value = constants.SECTION_SELECT_DESCRIPTION_VALUE;
 };
 
 /**

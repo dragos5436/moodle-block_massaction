@@ -146,7 +146,7 @@ const updateSelectionAndMoveToDropdowns = (sections, sectionsUnfiltered) => {
                 Templates.replaceNode('#' + cssIds.SECTION_SELECT, html, js);
                 disableInvisibleAndEmptySections(sections);
                 // Re-register event listener.
-                document.getElementById(cssIds.SECTION_SELECT).addEventListener('click',
+                document.getElementById(cssIds.SECTION_SELECT).addEventListener('change',
                     (event) => setSectionSelection(true, event.target.value), false);
                 return true;
             })

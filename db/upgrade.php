@@ -39,7 +39,7 @@ function xmldb_block_massaction_upgrade($oldversion, $block): bool {
     }
 
     if ($oldversion < 2022042001) { // Add flexsections support.
-        add_supported_format('flexsections');
+        block_massaction_add_supported_format('flexsections');
         upgrade_block_savepoint(true, 2022042001, 'massaction', false);
     }
 

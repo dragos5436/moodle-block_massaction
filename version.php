@@ -24,10 +24,10 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version = 2022041701;
+$plugin->version = 2022041702;
 $plugin->requires  = 2020061500;
 $plugin->supported = [39, 311];
 $plugin->incompatible = 400;
 $plugin->component = 'block_massaction';
 $plugin->maturity = MATURITY_STABLE;
-$plugin->release = 'v6.0.1';
+$plugin->release = 'v6.1.0';

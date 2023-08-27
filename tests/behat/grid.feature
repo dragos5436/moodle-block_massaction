@@ -1,6 +1,5 @@
 @block @block_massaction @block_massaction_grid
-Feature: Check if block generates all necessary checkboxes in grid format and properly disables
-  the currently not active sections (or sections not containing any modules)
+Feature: Check if in format_grid block properly disables the currently not active sections (or sections not containing any modules)
 
   @javascript
   Scenario: Check if checkboxes are created properly for grid format
@@ -24,13 +23,14 @@ Feature: Check if block generates all necessary checkboxes in grid format and pr
     When I log in as "teacher1"
     And I am on "Test course" course homepage with editing mode on
     And I add the "Mass Actions" block
-    And I click on "Test Activity1 Checkbox" "checkbox"
-    And I click on "Test Activity4 Checkbox" "checkbox"
-    Then the field "Test Activity1 Checkbox" matches value "1"
-    Then the field "Test Activity2 Checkbox" matches value ""
-    Then the field "Label text Checkbox" matches value ""
-    Then the field "Test Activity4 Checkbox" matches value "1"
-    Then the field "Test Activity5 Checkbox" matches value ""
+    And I click on "Bulk edit" "button"
+    And I click on "Test Activity1" "checkbox"
+    And I click on "Test Activity4" "checkbox"
+    Then the field "Test Activity1" matches value "1"
+    Then the field "Test Activity2" matches value ""
+    Then the field "Label text" matches value ""
+    Then the field "Test Activity4" matches value "1"
+    Then the field "Test Activity5" matches value ""
     Then the "disabled" attribute of "#block-massaction-control-section-list-select-option-0" "css_element" should not be set
     Then the "disabled" attribute of "#block-massaction-control-section-list-select-option-1" "css_element" should not be set
     Then the "disabled" attribute of "#block-massaction-control-section-list-select-option-2" "css_element" should not be set

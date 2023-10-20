@@ -142,7 +142,7 @@ switch ($data->action) {
             'request' => $massactionrequest,
             'instance_id' => $instanceid,
             'return_url' => $returnurl,
-            'sourcecourseid' => $context->instanceid
+            'sourcecourseid' => $context->instanceid,
         ];
 
         $courseselectform = new course_select_form(null, $options);
@@ -175,7 +175,7 @@ switch ($data->action) {
                     $duplicatetask = new duplicate_task();
                     $duplicatetask->set_userid($USER->id);
                     $duplicatetask->set_custom_data(['modules' => $modulerecords, 'sectionnum' => $targetsectionnum,
-                        'courseid' => $targetcourseid]);
+                        'courseid' => $targetcourseid, ]);
                     manager::queue_adhoc_task($duplicatetask);
                     redirect($returnurl, get_string('backgroundtaskinformation', 'block_massaction'), null,
                         notification::NOTIFY_SUCCESS);

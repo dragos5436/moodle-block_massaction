@@ -68,7 +68,6 @@ Feature: Check if in format_topcoll block properly disables the currently not ac
     And I click on "Indent (move right)" "button" in the "Mass Actions" "block"
     Then "#section-1 li.modtype_page div.indent-1" "css_element" should exist
     Then "#section-4 li.modtype_assign div.indent-1" "css_element" should exist
-    When I click on "Bulk edit" "button"
     And I click on "Test Activity2" "checkbox"
     And I click on "Test Activity5" "checkbox"
     And I click on "Outdent (move left)" "button" in the "Mass Actions" "block"

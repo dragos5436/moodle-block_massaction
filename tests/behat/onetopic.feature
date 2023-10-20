@@ -83,7 +83,6 @@ Feature: Check if in format_onetopic block properly disables the currently not a
     And I click on "Indent (move right)" "button" in the "Mass Actions" "block"
     Then "#section-4 li.modtype_page.indented" "css_element" should exist
     Then "#section-4 li.modtype_assign.indented" "css_element" should exist
-    When I click on "Bulk edit" "button"
     And I click on "Test Activity4" "checkbox"
     And I click on "Test Activity5" "checkbox"
     And I click on "Outdent (move left)" "button" in the "Mass Actions" "block"

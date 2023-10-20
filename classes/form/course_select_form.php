@@ -66,7 +66,7 @@ class course_select_form extends moodleform {
         $limittoenrolled = !empty(get_config('block_massaction', 'limittoenrolled'));
         $mform->addElement('course', 'targetcourseid', get_string('choosecoursetoduplicateto', 'block_massaction'),
             ['limittoenrolled' => $limittoenrolled, 'exclude' => $sourcecourseid,
-                'requiredcapabilities' => ['moodle/restore:restoretargetimport']]);
+                'requiredcapabilities' => ['moodle/restore:restoretargetimport'], ]);
 
         $this->add_action_buttons(true, get_string('confirmcourseselect', 'block_massaction'));
     }

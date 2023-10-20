@@ -28,7 +28,7 @@ import Log from 'core/log';
 import Notification from 'core/notification';
 import Pending from 'core/pending';
 import {getCurrentCourseEditor} from 'core_courseformat/courseeditor';
-import events from "core_course/events";
+import {disableStickyFooter} from 'core/sticky-footer';
 
 export const usedMoodleCssClasses = {
     ACTIVITY_ITEM: '.activity-item',
@@ -39,7 +39,6 @@ export const usedMoodleCssClasses = {
 
 export const cssIds = {
     BLOCK_CONTENT: 'block-massaction',
-    BULK_EDITING_DISABLED: 'block-massaction-bulk-editing-disabled',
     SELECT_ALL_LINK: 'block-massaction-control-selectall',
     DESELECT_ALL_LINK: 'block-massaction-control-deselectall',
     HIDE_LINK: 'block-massaction-action-hide',
@@ -96,21 +95,17 @@ export const init = async() => {
             // Initialize the checkbox manager.
             checkboxmanager.initCheckboxManager();
 
-            // Show block depending on if the moodle bulk editing util has been activated.
-            editor.stateManager.target.addEventListener(events.stateChanged, (event) => {
-                // Listen to the event that bulk editing mode has been enabled/disabled.
-                if (event.detail.action === 'bulk.enabled:updated') {
-                    // Hide/show block content depending on the bulk editing enabled state.
-                    document.getElementById(cssIds.BLOCK_CONTENT)?.classList.toggle('d-none');
-                    document.getElementById(cssIds.BULK_EDITING_DISABLED)?.classList.toggle('d-none');
-                }
-            });
+            // Enable bulk editing state.
+            editor.dispatch('bulkEnable', true);
 
-            // Register click handler for the button in the placeholder text if bulk editing is still disabled.
-            const enableBulkButton = document.getElementById('block-massaction-enable-bulk-editing');
-            // Remove the initial disabled attribute which is there to avoid too early clicks by users.
-            enableBulkButton.disabled = false;
-            enableBulkButton?.addEventListener('click', () => editor.dispatch('bulkEnable', true));
+            // Remove sticky footer.
+            disableStickyFooter();
+
+            // Show course module menu by removing the class that hides them.
+            let elem;
+            for (elem of document.getElementsByClassName("bulk-hidden")) {
+                elem.classList.remove("bulk-hidden");
+            }
             return true;
         })
         .catch(error => Log.debug(error));

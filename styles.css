@@ -89,3 +89,11 @@
 .block-massaction-sectionselectbox form {
     max-width: 600px;
 }
+
+.course-section-header .bulkselect {
+    display: none;
+}
+
+a[data-inplaceeditablelink] {
+    display: initial !important;
+}

@@ -159,7 +159,7 @@ class block_massaction extends block_base {
             $actions = [];
             foreach ($actionicons as $action => $iconpath) {
                 $actions[] = ['action' => $action, 'icon' => $iconpath,
-                    'actiontext' => get_string('action_' . $action, 'block_massaction')];
+                    'actiontext' => get_string('action_' . $action, 'block_massaction'), ];
             }
 
             $this->content->text = $OUTPUT->render_from_template('block_massaction/block_massaction',
@@ -169,7 +169,7 @@ class block_massaction extends block_base {
                     'show_moveto_select' => has_capability('moodle/course:manageactivities', $context),
                     'show_duplicateto_select' => (has_capability('moodle/backup:backuptargetimport', $context) &&
                         has_capability('moodle/restore:restoretargetimport', $context)),
-                    'sectionselecthelpicon' => $OUTPUT->help_icon('sectionselect', 'block_massaction')
+                    'sectionselecthelpicon' => $OUTPUT->help_icon('sectionselect', 'block_massaction'),
                 ]);
         }
         return $this->content;

@@ -34,13 +34,11 @@ Feature: Check if all the different type of actions of the mass actions block wo
     And I click on "Hide" "button" in the "Mass Actions" "block"
     Then "Test Activity1" activity should be hidden
     And "Test Activity4" activity should be hidden
-    When I click on "Bulk edit" "button"
     And I click on "Test Activity1" "checkbox"
     And I click on "Test Activity4" "checkbox"
     And I click on "Show" "button" in the "Mass Actions" "block"
     Then "Test Activity1" activity should be visible
     And "Test Activity4" activity should be visible
-    When I click on "Bulk edit" "button"
     And I click on "Test Activity1" "checkbox"
     And I click on "Test Activity4" "checkbox"
     And I click on "Make available" "button" in the "Mass Actions" "block"
@@ -75,13 +73,11 @@ Feature: Check if all the different type of actions of the mass actions block wo
     When I am on "Test course" course homepage
     Then I should not see "Test page description1"
     And I should not see "Test page description4"
-    When I click on "Bulk edit" "button"
     And I click on "Test Activity1" "checkbox"
     And I click on "Test Activity4" "checkbox"
     And I click on "Show description" "button" in the "Mass Actions" "block"
     Then I should see "Test page description1"
     And I should see "Test page description4"
-    When I click on "Bulk edit" "button"
     And I click on "Test Activity1" "checkbox"
     And I click on "Test Activity4" "checkbox"
     And I click on "Hide description" "button" in the "Mass Actions" "block"
@@ -187,7 +183,6 @@ Feature: Check if all the different type of actions of the mass actions block wo
     And I click on "Indent (move right)" "button" in the "Mass Actions" "block"
     Then "#section-1 li.modtype_page.indented" "css_element" should exist
     Then "#section-4 li.modtype_assign.indented" "css_element" should exist
-    When I click on "Bulk edit" "button"
     And I click on "Test Activity2" "checkbox"
     And I click on "Test Activity5" "checkbox"
     And I click on "Outdent (move left)" "button" in the "Mass Actions" "block"

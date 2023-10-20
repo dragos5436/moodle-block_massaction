@@ -23,7 +23,6 @@ Feature: Check if in format_topcoll block properly disables the currently not ac
     When I log in as "teacher1"
     And I am on "Test course" course homepage with editing mode on
     And I add the "Mass Actions" block
-    And I click on "Bulk edit" "button"
     And I click on "Open all" "text"
     And I click on "Test Activity1" "checkbox"
     And I click on "Test Activity4" "checkbox"
@@ -60,7 +59,6 @@ Feature: Check if in format_topcoll block properly disables the currently not ac
     When I log in as "teacher1"
     And I am on "Test course" course homepage with editing mode on
     And I add the "Mass Actions" block
-    And I click on "Bulk edit" "button"
     # Everything is setup now, let's do the real test.
     And I click on "Open all" "text"
     And I click on "Test Activity2" "checkbox"

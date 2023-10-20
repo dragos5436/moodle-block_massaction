@@ -93,7 +93,3 @@
 .course-section-header .bulkselect {
     display: none;
 }
-
-a[data-inplaceeditablelink] {
-    display: initial !important;
-}

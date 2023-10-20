@@ -23,7 +23,6 @@ Feature: Check if in format_grid block properly disables the currently not activ
     When I log in as "teacher1"
     And I am on "Test course" course homepage with editing mode on
     And I add the "Mass Actions" block
-    And I click on "Bulk edit" "button"
     And I click on "Test Activity1" "checkbox"
     And I click on "Test Activity4" "checkbox"
     Then the field "Test Activity1" matches value "1"

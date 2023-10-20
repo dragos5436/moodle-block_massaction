@@ -23,7 +23,6 @@ Feature: Check if in format_onetopic block properly disables the currently not a
     When I log in as "teacher1"
     And I am on "Test course" course homepage with editing mode on
     And I add the "Mass Actions" block
-    And I click on "Bulk edit" "button"
     When I click on ".nav-link[title='General']" "css_element"
     And I click on "Test Activity1" "checkbox"
     Then the field "Test Activity1" matches value "1"
@@ -33,11 +32,9 @@ Feature: Check if in format_onetopic block properly disables the currently not a
     Then the "disabled" attribute of "#block-massaction-control-section-list-select-option-3" "css_element" should be set
     Then the "disabled" attribute of "#block-massaction-control-section-list-select-option-4" "css_element" should be set
     When I click on ".nav-link[title='Topic 4']" "css_element"
-    And I click on "Bulk edit" "button"
     And I click on "Test Activity4" "checkbox"
     Then the field "Test Activity4" matches value "1"
     When I click on ".nav-link[title='Topic 2']" "css_element"
-    And I click on "Bulk edit" "button"
     And I click on "Label text" "checkbox"
     Then the field "Label text" matches value "1"
     Then the "disabled" attribute of "#block-massaction-control-section-list-select-option-0" "css_element" should be set
@@ -46,7 +43,6 @@ Feature: Check if in format_onetopic block properly disables the currently not a
     Then the "disabled" attribute of "#block-massaction-control-section-list-select-option-3" "css_element" should be set
     Then the "disabled" attribute of "#block-massaction-control-section-list-select-option-4" "css_element" should be set
     When I click on ".nav-link[title='Topic 3']" "css_element"
-    And I click on "Bulk edit" "button"
     Then the "disabled" attribute of "#block-massaction-control-section-list-select-option-0" "css_element" should be set
     Then the "disabled" attribute of "#block-massaction-control-section-list-select-option-1" "css_element" should be set
     Then the "disabled" attribute of "#block-massaction-control-section-list-select-option-2" "css_element" should be set
@@ -76,7 +72,6 @@ Feature: Check if in format_onetopic block properly disables the currently not a
     And I am on "Test course" course homepage with editing mode on
     And I add the "Mass Actions" block
     And I click on ".nav-link[title='Topic 4']" "css_element"
-    And I click on "Bulk edit" "button"
     # Everything is setup now, let's do the real test.
     And I click on "Test Activity4" "checkbox"
     And I click on "Test Activity5" "checkbox"

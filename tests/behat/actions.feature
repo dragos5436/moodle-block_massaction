@@ -25,7 +25,6 @@ Feature: Check if all the different type of actions of the mass actions block wo
     When I log in as "teacher1"
     And I am on "Test course" course homepage with editing mode on
     And I add the "Mass Actions" block
-    And I click on "Bulk edit" "button"
 
   @javascript
   Scenario: Check if mass actions 'hide' and 'show' work

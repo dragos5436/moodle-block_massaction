@@ -101,12 +101,18 @@ export const init = async() => {
             // Remove sticky footer.
             disableStickyFooter();
 
-            // Show course module menu by removing the class that hides them.
+            return true;
+        })
+        .then(() => {
+            // Show module tools by removing the classes that hides them.
             let elem;
             for (elem of document.getElementsByClassName("bulk-hidden")) {
                 elem.classList.remove("bulk-hidden");
             }
-            return true;
+
+            for (elem of document.querySelectorAll('[data-inplaceeditablelink]')) {
+                elem.classList.remove("d-none");
+            }
         })
         .catch(error => Log.debug(error));
 

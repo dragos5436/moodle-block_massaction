@@ -113,6 +113,7 @@ export const init = async() => {
             for (elem of document.querySelectorAll('[data-inplaceeditablelink]')) {
                 elem.classList.remove("d-none");
             }
+            return true;
         })
         .catch(error => Log.debug(error));
 

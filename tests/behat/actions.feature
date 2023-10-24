@@ -19,13 +19,13 @@ Feature: Check if all the different type of actions of the mass actions block wo
       | activity | course | idnumber | name           | intro                  | section |
       | page     | TC     | 1        | Test Activity1 | Test page description1 | 0       |
       | page     | TC     | 2        | Test Activity2 | Test page description2 | 1       |
-      | label    | TC     | 3        | Test Activity3 | Label text3            | 2       |
+      | label    | TC     | 3        | Test Activity3 | Test Activity3         | 2       |
       | page     | TC     | 4        | Test Activity4 | Test page description4 | 4       |
       | assign   | TC     | 5        | Test Activity5 | Test page description5 | 4       |
     When I log in as "teacher1"
     And I am on "Test course" course homepage with editing mode on
     And I add the "Mass Actions" block
-    And I click on "Bulk edit" "button"
+    And I click on "Enable bulk editing" "button"
 
   @javascript
   Scenario: Check if mass actions 'hide' and 'show' work
@@ -34,13 +34,13 @@ Feature: Check if all the different type of actions of the mass actions block wo
     And I click on "Hide" "button" in the "Mass Actions" "block"
     Then "Test Activity1" activity should be hidden
     And "Test Activity4" activity should be hidden
-    When I click on "Bulk edit" "button"
+    When I click on "Enable bulk editing" "button"
     And I click on "Test Activity1" "checkbox"
     And I click on "Test Activity4" "checkbox"
     And I click on "Show" "button" in the "Mass Actions" "block"
     Then "Test Activity1" activity should be visible
     And "Test Activity4" activity should be visible
-    When I click on "Bulk edit" "button"
+    When I click on "Enable bulk editing" "button"
     And I click on "Test Activity1" "checkbox"
     And I click on "Test Activity4" "checkbox"
     And I click on "Make available" "button" in the "Mass Actions" "block"
@@ -75,13 +75,13 @@ Feature: Check if all the different type of actions of the mass actions block wo
     When I am on "Test course" course homepage
     Then I should not see "Test page description1"
     And I should not see "Test page description4"
-    When I click on "Bulk edit" "button"
+    When I click on "Enable bulk editing" "button"
     And I click on "Test Activity1" "checkbox"
     And I click on "Test Activity4" "checkbox"
     And I click on "Show description" "button" in the "Mass Actions" "block"
     Then I should see "Test page description1"
     And I should see "Test page description4"
-    When I click on "Bulk edit" "button"
+    When I click on "Enable bulk editing" "button"
     And I click on "Test Activity1" "checkbox"
     And I click on "Test Activity4" "checkbox"
     And I click on "Hide description" "button" in the "Mass Actions" "block"
@@ -187,7 +187,7 @@ Feature: Check if all the different type of actions of the mass actions block wo
     And I click on "Indent (move right)" "button" in the "Mass Actions" "block"
     Then "#section-1 li.modtype_page.indented" "css_element" should exist
     Then "#section-4 li.modtype_assign.indented" "css_element" should exist
-    When I click on "Bulk edit" "button"
+    When I click on "Enable bulk editing" "button"
     And I click on "Test Activity2" "checkbox"
     And I click on "Test Activity5" "checkbox"
     And I click on "Outdent (move left)" "button" in the "Mass Actions" "block"

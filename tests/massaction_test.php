@@ -41,12 +41,12 @@ class massaction_test extends advanced_testcase {
     /**
      * @var stdClass Course record.
      */
-    private stdClass $course;
+    private $course;
 
     /**
      * @var stdClass User record.
      */
-    private stdClass $teacher;
+    private $teacher;
 
     /**
      * Prepare testing.

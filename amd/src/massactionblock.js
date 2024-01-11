@@ -84,14 +84,15 @@ const actions = {
 
 /**
  * Initialize the mass-action block.
+ * @param {[]} sectionsRestricted the sections which are restrected for the course format
  */
-export const init = async() => {
+export const init = async(sectionsRestricted) => {
     const pendingPromise = new Pending('block_massaction/init');
 
     const editor = getCurrentCourseEditor();
     // Initialize the checkbox manager as soon as the courseeditor is ready.
     editor.stateManager.getInitialPromise()
-        .then(() => checkboxmanager.initCheckboxManager())
+        .then(() => checkboxmanager.initCheckboxManager(sectionsRestricted))
         .catch(error => Log.debug(error));
 
     document.getElementById(cssIds.SELECT_ALL_LINK)?.addEventListener('click',

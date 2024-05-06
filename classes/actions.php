@@ -29,7 +29,8 @@ use base_plan_exception;
 use base_setting_exception;
 use block_massaction\form\course_select_form;
 use block_massaction\form\section_select_form;
-use block_massaction\hook\filter_sections;
+use block_massaction\hook\filter_sections_different_course;
+use block_massaction\hook\filter_sections_same_course;
 use coding_exception;
 use context_course;
 use core\event\course_module_updated;
@@ -152,8 +153,7 @@ class actions {
         $cms = [];
         $errors = [];
         $duplicatedmods = [];
-        $filtersectionshook = new filter_sections($courseid, array_keys($modinfo->get_section_info_all()),
-                filter_sections::SAMECOURSE);
+        $filtersectionshook = new filter_sections_same_course($courseid, array_keys($modinfo->get_section_info_all()));
         \core\di::get(\core\hook\manager::class)->dispatch($filtersectionshook);
         foreach ($idsincourseorder as $cmid) {
             $cm = $modinfo->get_cm($cmid);
@@ -246,8 +246,8 @@ class actions {
         $targetformat = course_get_format($targetmodinfo->get_course());
         $targetsectionnum = $targetformat->get_last_section_number();
 
-        $filtersectionshook = new filter_sections($targetcourseid, array_keys($targetmodinfo->get_section_info_all()),
-                filter_sections::ANOTHERCOURSE);
+        $filtersectionshook = new filter_sections_different_course($targetcourseid,
+                array_keys($targetmodinfo->get_section_info_all()));
         \core\di::get(\core\hook\manager::class)->dispatch($filtersectionshook);
         $filteredsections = $filtersectionshook->get_sectionnums();
 
@@ -319,8 +319,7 @@ class actions {
         $duplicatedmods = [];
         $cms = [];
         $errors = [];
-        $filtersectionshook = new filter_sections($sourcecourseid, array_keys($sourcemodinfo->get_section_info_all()),
-                filter_sections::SAMECOURSE);
+        $filtersectionshook = new filter_sections_same_course($sourcecourseid, array_keys($sourcemodinfo->get_section_info_all()));
         \core\di::get(\core\hook\manager::class)->dispatch($filtersectionshook);
         $sourcefilteredsections = $filtersectionshook->get_sectionnums();
 
@@ -590,10 +589,9 @@ class actions {
 
         if (!empty($modules)) {
             $courseid = reset($modules)->course;
-            $filtersectionshook = new filter_sections(
+            $filtersectionshook = new filter_sections_same_course(
                     $courseid,
-                    array_keys(get_fast_modinfo($courseid)->get_section_info_all()),
-                    filter_sections::SAMECOURSE
+                    array_keys(get_fast_modinfo($courseid)->get_section_info_all())
             );
             \core\di::get(\core\hook\manager::class)->dispatch($filtersectionshook);
         }

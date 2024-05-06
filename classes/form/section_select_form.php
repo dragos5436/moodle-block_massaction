@@ -25,7 +25,7 @@
 
 namespace block_massaction\form;
 
-use block_massaction\hook\filter_sections;
+use block_massaction\hook\filter_sections_different_course;
 use block_massaction\massactionutils;
 use core\output\notification;
 use moodleform;
@@ -100,7 +100,7 @@ class section_select_form extends moodleform {
         // Trims off any possible orphaned sections.
         $targetsections = array_slice($targetsections, 0, $targetsectionnum + 1);
 
-        $filtersectionshook = new filter_sections($targetcourseid, array_keys($targetsections), filter_sections::ANOTHERCOURSE);
+        $filtersectionshook = new filter_sections_different_course($targetcourseid, array_keys($targetsections));
         \core\di::get(\core\hook\manager::class)->dispatch($filtersectionshook);
         $filteredsections = $filtersectionshook->get_sectionnums();
 
